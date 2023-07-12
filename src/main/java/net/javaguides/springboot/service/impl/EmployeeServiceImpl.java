@@ -3,6 +3,7 @@ package net.javaguides.springboot.service.impl;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import net.javaguides.springboot.exception.ResourceNotFoundException;
@@ -14,7 +15,7 @@ import net.javaguides.springboot.service.EmployeeService;
 public class EmployeeServiceImpl implements EmployeeService{
 
 	private EmployeeRepository employeeRepository;
-	
+
 	public EmployeeServiceImpl(EmployeeRepository employeeRepository) {
 		super();
 		this.employeeRepository = employeeRepository;
@@ -53,6 +54,7 @@ public class EmployeeServiceImpl implements EmployeeService{
 		existingEmployee.setFirstName(employee.getFirstName());
 		existingEmployee.setLastName(employee.getLastName());
 		existingEmployee.setEmail(employee.getEmail());
+		existingEmployee.setPosition(employee.getPosition());
 		// save existing employee to DB
 		employeeRepository.save(existingEmployee);
 		return existingEmployee;

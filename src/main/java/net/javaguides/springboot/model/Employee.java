@@ -26,4 +26,7 @@ public class Employee {
 	
 	@Column(name = "email")
 	private String email;
+
+	@Column(name = "position")
+	private String position;
 }
